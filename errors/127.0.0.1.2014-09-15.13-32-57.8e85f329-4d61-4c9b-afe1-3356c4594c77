@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.ValueError'> invalid literal for long() with base 10: 'u'"
+p3
+sS'layer'
+p4
+S'C:\\Users\\Merian Herrera\\Desktop\\web2py\\applications\\super_zapatos\\controllers/api.py'
+p5
+sS'code'
+p6
+S'@request.restful()\ndef services():\n    response.view = \'generic.json\'\n    \n    def GET(*args,**vars):\n        pattern = [\n            "/stores[stores]",\n            "/articles/stores/{articles.store_id}",\n            "/articles[articles]"\n            ]\n        parser = db.parse_as_rest(pattern,args,vars)\n        obj = parser.response\n        name = args[0]\n        if len(args) == 3:\n            ##if not args[2].isdigit():\n            return dict(success= False, error_code=\'404\', error_msg=\'Bad request\')\n                ##pass\n            pass\n\n        if parser.status == 200:\n            dictionary= {\'success\':True, name:obj, \'total_elements\':len(obj), \'test\':args }\n            return dictionary\n\n        elif parser.status == 500:\n            return dict(success= False, error_code=parser.status, error_msg=\'Server Error\')\n        else:\n            return dict(success= False, error_code=parser.status, error_msg=parser.error)\n    return locals()\n\n\nresponse._vars=response._caller(services)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "gluon/restricted.py", line 221, in restricted\n  File "C:\\Users\\Merian Herrera\\Desktop\\web2py\\applications\\super_zapatos\\controllers/api.py", line 31, in <module>\n  File "gluon/globals.py", line 388, in <lambda>\n  File "gluon/globals.py", line 354, in f\n  File "C:\\Users\\Merian Herrera\\Desktop\\web2py\\applications\\super_zapatos\\controllers/api.py", line 11, in GET\n    parser = db.parse_as_rest(pattern,args,vars)\n  File "gluon/dal.py", line 8341, in parse_as_rest\n  File "gluon/dal.py", line 10714, in count\n  File "gluon/dal.py", line 1894, in count\n  File "gluon/dal.py", line 1881, in _count\n  File "gluon/dal.py", line 1544, in expand\n  File "gluon/dal.py", line 1440, in EQ\n  File "gluon/dal.py", line 1555, in expand\n  File "gluon/dal.py", line 1998, in represent\nValueError: invalid literal for long() with base 10: \'u\'\n'
+p11
+s.
